@@ -1,0 +1,38 @@
+[
+  {
+    "id": "vodafone-uk-official",
+    "name": "Official Vodafone UK Pay-As-You-Go SIM Card",
+    "category": "Vodafone UK",
+    "price": 3500,
+    "originalPrice": 6000,
+    "rating": 5,
+    "reviewsCount": 312,
+    "image": "/product pictures/Vodafone_img1_202304.jpg",
+    "description": "Factory sealed physical Vodafone UK SIM. Zero monthly contract. Guaranteed UK OTPs, Wise, Monzo, and PayPal UK accounts.",
+    "isBestSeller": true
+  },
+  {
+    "id": "tmobile-usa-official",
+    "name": "Official T-Mobile USA Pay-As-You-Go SIM Card",
+    "category": "T-Mobile USA",
+    "price": 10500,
+    "originalPrice": 16000,
+    "rating": 4.9,
+    "reviewsCount": 189,
+    "image": "/t mobile/images (1).jpg",
+    "description": "Genuine T-Mobile USA SIM with full US number (+1). Roaming in 210+ countries. Ideal for PayPal US & US TikTok Live.",
+    "isBestSeller": true
+  },
+  {
+    "id": "ee-uk-sim",
+    "name": "EE UK Pay-As-You-Go SIM Card in Pakistan",
+    "category": "EE UK",
+    "price": 4000,
+    "originalPrice": 7000,
+    "rating": 4.9,
+    "reviewsCount": 127,
+    "image": "/ee/ee-sim-card.svg",
+    "description": "Official EE UK SIM on the UK's fastest 5G-ready network. Perfect for UK banking OTPs, TikTok Live, PayPal verification, and international roaming without contracts.",
+    "isBestSeller": false
+  }
+]

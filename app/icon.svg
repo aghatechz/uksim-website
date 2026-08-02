@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="vodaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E60000" />
+      <stop offset="100%" stop-color="#B30000" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer Circle Backdrop -->
+  <circle cx="256" cy="256" r="240" fill="url(#vodaGrad)" />
+
+  <!-- Inner Speech Mark Symbol -->
+  <path 
+    d="M256 112c-70.7 0-128 57.3-128 128 0 52.4 31.5 97.4 76.8 116.8v-59.2c-20.8-13.6-34.8-36.8-34.8-63.6 0-41.9 34.1-76 76-76s76 34.1 76 76c0 26.8-14 50-34.8 63.6v59.2c45.3-19.4 76.8-64.4 76.8-116.8 0-70.7-57.3-128-128-128z" 
+    fill="#FFFFFF" 
+    filter="url(#shadow)"
+  />
+
+  <!-- Subtle Accent Dot -->
+  <circle cx="256" cy="240" r="24" fill="#FFFFFF" opacity="0.9" />
+</svg>
