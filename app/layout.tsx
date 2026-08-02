@@ -17,11 +17,16 @@ const outfit = Outfit({
   weight: ["500", "600", "700", "800", "900"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://uksim.vercel.app";
+
 export const metadata: Metadata = {
-  title:
-    "Buy Vodafone UK & T-Mobile USA SIM Card in Pakistan | Cash on Delivery",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Buy Vodafone UK & T-Mobile USA SIM Card in Pakistan | Cash on Delivery",
+    template: "%s | Vodafone SIM Hub Pakistan",
+  },
   description:
-    "Get genuine Vodafone UK and T-Mobile USA SIM cards delivered to your doorstep in Pakistan. Perfect for UK banking OTP, PayPal, TikTok Live, Wise verification. Cash on delivery. Free shipping.",
+    "Official Vodafone UK, T-Mobile USA & European physical SIM cards in Pakistan. Instant SMS OTP verification for Wise, PayPal, Monzo & Bank Apps. Free Cash on Delivery (COD) nationwide.",
   keywords: [
     "Vodafone UK SIM Pakistan",
     "T-Mobile USA SIM Pakistan",
@@ -36,18 +41,19 @@ export const metadata: Metadata = {
     "international SIM card Pakistan",
   ],
   openGraph: {
-    title: "Buy Vodafone UK & T-Mobile USA SIM Card in Pakistan",
+    title: "Buy Official Vodafone UK & T-Mobile USA SIM Cards in Pakistan",
     description:
-      "Genuine UK & USA SIM cards with cash on delivery across Pakistan. For banking, OTP, PayPal, TikTok Live & more.",
-    url: "https://vodafonesimhub.pk",
+      "Genuine UK & USA physical SIM cards with Free Cash on Delivery across Pakistan. Instant SMS OTP for Wise, PayPal, Monzo & Banking Apps.",
+    url: siteUrl,
     siteName: "Vodafone SIM Hub Pakistan",
     type: "website",
     locale: "en_PK",
     images: [
       {
-        url: "/hero-1.png",
+        url: "/hero-2.png",
         width: 1200,
         height: 630,
+        type: "image/png",
         alt: "Vodafone UK & T-Mobile USA SIM Cards in Pakistan",
       },
     ],
@@ -56,8 +62,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Buy Vodafone UK & T-Mobile USA SIM in Pakistan",
     description:
-      "Genuine UK & USA SIM cards delivered to Pakistan. Banking, OTP, TikTok Live ready. Cash on delivery.",
-    images: ["/hero-1.png"],
+      "Official UK & USA SIM cards with Free Cash on Delivery across Pakistan. Instant OTP verification for international banking.",
+    images: ["/hero-2.png"],
   },
   robots: {
     index: true,
@@ -68,7 +74,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://vodafonesimhub.pk",
+    canonical: siteUrl,
   },
   icons: {
     icon: "/icon.svg",

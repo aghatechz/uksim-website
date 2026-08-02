@@ -23,10 +23,12 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCart } from "./CartProvider";
 
 const topBarAnnouncements = [
-  { icon: ShieldCheck, text: "100% Official UK & USA SIM Cards in Pakistan" },
-  { icon: Truck, text: "Free Cash on Delivery (COD) Nationwide • 2 to 3 Days" },
-  { icon: CheckCircle2, text: "Instant SMS OTP for Wise, PayPal, Monzo & Bank Apps" },
-  { icon: Phone, text: "Official Support & WhatsApp: +92 340 8219725" },
+  { icon: Phone, text: "WhatsApp & Call Support: +92 340 8219725", highlight: "24/7 Active" },
+  { icon: Globe, text: "Official Vodafone UK & T-Mobile USA SIM Distributor in Pakistan", highlight: "100% Genuine" },
+  { icon: CheckCircle2, text: "Free Cash on Delivery (COD) All Over Pakistan", highlight: "Zero Shipping Fee" },
+  { icon: Sparkles, text: "TikTok Live & Monetization Guaranteed Unblock", highlight: "No VPN Needed" },
+  { icon: ShieldCheck, text: "Instant OTP SMS Verification for Wise, PayPal, Monzo & Banks", highlight: "Verified" },
+  { icon: Truck, text: "Same-Day Dispatch • 2 to 3 Working Days Delivery", highlight: "Fast Shipping" },
 ];
 
 const navLinks = [
@@ -135,68 +137,32 @@ export default function Navbar({
 
 
 
-  const [announcementIndex, setAnnouncementIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setAnnouncementIndex((prev) => (prev + 1) % topBarAnnouncements.length);
-    }, 4500);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
-        {/* Professional Decent Top Bar */}
+        {/* Top Continuous Marquee Ticker Bar */}
         <AnimatePresence>
           {!scrolled && (
             <motion.div
               initial={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="bg-[#121212] text-slate-200 text-xs py-2 px-4 border-b border-white/10 shadow-xs relative"
+              transition={{ duration: 0.3 }}
+              className="bg-gradient-to-r from-[#B30000] via-[#E60000] to-[#990000] text-white text-[11.5px] py-2 overflow-hidden border-b border-red-700/60 shadow-xs relative"
             >
-              <div className="max-w-7xl mx-auto flex items-center justify-between">
-                {/* Left: Contact Info */}
-                <a
-                  href="https://wa.me/923408219725"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden md:flex items-center gap-2 text-slate-300 hover:text-red-400 transition-colors font-medium text-[11.5px]"
-                >
-                  <Phone className="w-3.5 h-3.5 text-red-500" />
-                  <span>Helpline & WhatsApp: <strong className="text-white">+92 340 8219725</strong></span>
-                </a>
-
-                {/* Center: Smooth Rotating Announcement */}
-                <div className="flex-1 flex items-center justify-center overflow-hidden h-5">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={announcementIndex}
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -6 }}
-                      transition={{ duration: 0.3 }}
-                      className="flex items-center gap-2 font-medium text-[11.5px] text-slate-100"
-                    >
-                      {(() => {
-                        const ItemIcon = topBarAnnouncements[announcementIndex].icon;
-                        return (
-                          <>
-                            <ItemIcon className="w-3.5 h-3.5 text-red-500 shrink-0" />
-                            <span>{topBarAnnouncements[announcementIndex].text}</span>
-                          </>
-                        );
-                      })()}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-
-                {/* Right: Key Benefit */}
-                <div className="hidden lg:flex items-center gap-2 text-slate-300 text-[11.5px] font-medium">
-                  <Truck className="w-3.5 h-3.5 text-red-500" />
-                  <span>Free COD Across Pakistan</span>
-                </div>
+              <div className="flex animate-marquee whitespace-nowrap items-center hover:[animation-play-state:paused] cursor-pointer">
+                {[...topBarAnnouncements, ...topBarAnnouncements].map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={idx} className="flex items-center gap-2 mx-6 shrink-0">
+                      <span className="bg-white/15 px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-red-100 border border-white/20">
+                        {item.highlight}
+                      </span>
+                      <Icon className="w-3.5 h-3.5 text-white shrink-0" />
+                      <span className="text-white font-bold">{item.text}</span>
+                      <span className="text-white/40 ml-4 font-bold">•</span>
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           )}
@@ -204,38 +170,34 @@ export default function Navbar({
 
         {/* Main Navbar */}
         <div
-          className={`transition-all duration-300 ${
-            isTransparentTheme
-              ? "bg-transparent py-4"
-              : "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3"
-          }`}
+          className={`transition-all duration-300 ${isTransparentTheme
+            ? "bg-transparent py-4"
+            : "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3"
+            }`}
         >
           <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between">
-              
+
               {/* Left Brand Logo */}
               <Link href="/" className="flex items-center gap-2.5 group">
                 <div
-                  className={`w-9 h-9 rounded-xl flex items-center justify-center group-hover:scale-105 transition-all shadow-xs ${
-                    isTransparentTheme
-                      ? "bg-white/20 backdrop-blur-md text-white"
-                      : "bg-[#E60000] text-white"
-                  }`}
+                  className={`w-9 h-9 rounded-xl flex items-center justify-center group-hover:scale-105 transition-all shadow-xs ${isTransparentTheme
+                    ? "bg-white/20 backdrop-blur-md text-white"
+                    : "bg-[#E60000] text-white"
+                    }`}
                 >
                   <Wifi className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col">
                   <span
-                    className={`text-lg font-black leading-tight tracking-tight transition-colors ${
-                      isTransparentTheme ? "text-white" : "text-slate-900"
-                    }`}
+                    className={`text-lg font-black leading-tight tracking-tight transition-colors ${isTransparentTheme ? "text-white" : "text-slate-900"
+                      }`}
                   >
                     Vodafone
                   </span>
                   <span
-                    className={`text-[10px] font-bold leading-none -mt-0.5 transition-colors ${
-                      isTransparentTheme ? "text-white/80" : "text-slate-500"
-                    }`}
+                    className={`text-[10px] font-bold leading-none -mt-0.5 transition-colors ${isTransparentTheme ? "text-white/80" : "text-slate-500"
+                      }`}
                   >
                     Pakistan SIM Hub
                   </span>
@@ -252,15 +214,14 @@ export default function Navbar({
                       key={link.label}
                       href={link.href}
                       onClick={() => handleNavClick(link)}
-                      className={`px-3.5 py-2 text-xs font-black transition-all rounded-xl ${
-                        isTransparentTheme
-                          ? isActive
-                            ? "text-white font-black"
-                            : "text-white/90 hover:text-white hover:bg-white/10"
-                          : isActive
+                      className={`px-3.5 py-2 text-xs font-black transition-all rounded-xl ${isTransparentTheme
+                        ? isActive
+                          ? "text-white font-black"
+                          : "text-white/90 hover:text-white hover:bg-white/10"
+                        : isActive
                           ? "bg-red-50 text-[#E60000]"
                           : "text-slate-700 hover:text-[#E60000] hover:bg-slate-100"
-                      }`}
+                        }`}
                     >
                       {link.label}
                     </Link>
@@ -274,13 +235,12 @@ export default function Navbar({
                 <button
                   onClick={() => setSearchOpen(!searchOpen)}
                   title="Search SIM Packages"
-                  className={`p-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center ${
-                    searchOpen
-                      ? "bg-[#E60000] text-white"
-                      : isTransparentTheme
+                  className={`p-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center ${searchOpen
+                    ? "bg-[#E60000] text-white"
+                    : isTransparentTheme
                       ? "text-white hover:bg-white/15"
                       : "text-slate-700 hover:text-[#E60000] hover:bg-slate-100"
-                  }`}
+                    }`}
                 >
                   <Search className="w-4.5 h-4.5" />
                 </button>
@@ -289,11 +249,10 @@ export default function Navbar({
                 <button
                   onClick={openWishlist}
                   title="Open Wishlist"
-                  className={`relative p-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center ${
-                    isTransparentTheme
-                      ? "text-white hover:bg-white/15"
-                      : "text-slate-700 hover:text-[#E60000] hover:bg-slate-100"
-                  }`}
+                  className={`relative p-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center ${isTransparentTheme
+                    ? "text-white hover:bg-white/15"
+                    : "text-slate-700 hover:text-[#E60000] hover:bg-slate-100"
+                    }`}
                 >
                   <Heart className="w-4.5 h-4.5" />
                   {wishlistItems.length > 0 && (
@@ -307,11 +266,10 @@ export default function Navbar({
                 <button
                   onClick={openCart}
                   title="Open Shopping Cart"
-                  className={`relative p-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center ${
-                    isTransparentTheme
-                      ? "text-white hover:bg-white/15"
-                      : "text-slate-700 hover:text-[#E60000] hover:bg-slate-100"
-                  }`}
+                  className={`relative p-2.5 rounded-xl transition-all cursor-pointer flex items-center justify-center ${isTransparentTheme
+                    ? "text-white hover:bg-white/15"
+                    : "text-slate-700 hover:text-[#E60000] hover:bg-slate-100"
+                    }`}
                 >
                   <ShoppingCart className="w-4.5 h-4.5" />
                   {cartCount > 0 && (

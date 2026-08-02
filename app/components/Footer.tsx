@@ -124,8 +124,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="border-t border-white/10 pt-6 text-center text-xs text-white/40">
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
           <p>© 2026 Vodafone UK Pakistan. All rights reserved.</p>
+          <Link href="/admin" className="hover:text-white/80 transition-colors flex items-center gap-1">
+            <span>🔒 Admin Portal</span>
+          </Link>
         </div>
       </div>
     </footer>
