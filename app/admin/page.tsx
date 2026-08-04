@@ -5442,14 +5442,7 @@ function AdminOrdersDashboardContent() {
 
 export default function AdminPage() {
   return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen bg-slate-950 text-white flex flex-col items-center justify-center gap-3">
-          <div className="w-10 h-10 border-4 border-red-600 border-t-transparent rounded-full animate-spin"></div>
-          <span className="text-sm font-bold text-slate-300">Loading Vodafone Admin Control Panel...</span>
-        </div>
-      }
-    >
+    <Suspense fallback={null}>
       <AdminOrdersDashboardContent />
     </Suspense>
   );
