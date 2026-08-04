@@ -51,25 +51,11 @@ const searchableProducts = [
     carrier: "T-Mobile USA",
   },
   {
-    id: "giffgaff-uk-sim",
-    name: "Giffgaff UK SIM Card in Pakistan",
+    id: "usa-tiktok-rpm-sim",
+    name: "USA SIM Card for Only TikTok Audience Target & Increase RPM",
     price: 2000,
-    image: "/product pictures/vodafone-sim.png",
-    carrier: "Giffgaff UK",
-  },
-  {
-    id: "ee-uk-sim",
-    name: "EE UK Pay-As-You-Go SIM Card in Pakistan",
-    price: 4000,
-    image: "/ee/ee-sim-card.svg",
-    carrier: "EE UK",
-  },
-  {
-    id: "lebara-uk-sim",
-    name: "Lebara UK Pay-As-You-Go SIM Card in Pakistan",
-    price: 2500,
-    image: "/lebara/lebara-sim-card.svg",
-    carrier: "Lebara UK",
+    image: "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.44 AM.jpeg",
+    carrier: "T-Mobile USA",
   },
 ];
 
@@ -330,7 +316,7 @@ export default function Navbar({
                       <Search className="w-4.5 h-4.5 text-[#E60000] ml-3 shrink-0" />
                       <input
                         type="text"
-                        placeholder="Search Vodafone, T-Mobile, EE, Lebara, or Giffgaff SIMs..."
+                        placeholder="Search Vodafone, T-Mobile, or USA TikTok SIMs..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full bg-transparent border-none text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none px-2 py-2 font-semibold"

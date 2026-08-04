@@ -30,7 +30,7 @@ import { motion, AnimatePresence } from "framer-motion";
 interface ProductItem {
   id: string;
   name: string;
-  category: "Vodafone UK" | "T-Mobile USA" | "Giffgaff UK" | "EE UK" | "Lebara UK";
+  category: "Vodafone UK" | "T-Mobile USA";
   price: number;
   originalPrice: number;
   rating: number;
@@ -66,40 +66,16 @@ const productsList: ProductItem[] = [
     isBestSeller: true,
   },
   {
-    id: "giffgaff-uk-sim",
-    name: "Giffgaff UK SIM Card in Pakistan",
-    category: "Giffgaff UK",
+    id: "usa-tiktok-rpm-sim",
+    name: "USA SIM Card for Only TikTok Audience Target & Increase RPM",
+    category: "T-Mobile USA",
     price: 2000,
-    originalPrice: 3500,
-    rating: 4.8,
-    reviewsCount: 95,
-    image: "/product pictures/vodafone-sim.png",
-    description: "Official Giffgaff UK SIM Card delivered across Pakistan. Ideal for TikTok Live, UK banking OTPs, and PayPal verification.",
-    isBestSeller: true,
-  },
-  {
-    id: "ee-uk-sim",
-    name: "EE UK Pay-As-You-Go SIM Card in Pakistan",
-    category: "EE UK",
-    price: 4000,
-    originalPrice: 7000,
-    rating: 4.9,
-    reviewsCount: 127,
-    image: "/ee/ee-sim-card.svg",
-    description: "Official EE UK SIM on the UK's fastest 5G-ready network. Perfect for UK banking OTPs, TikTok Live, PayPal verification, and international roaming without contracts.",
-    isBestSeller: false,
-  },
-  {
-    id: "lebara-uk-sim",
-    name: "Lebara UK Pay-As-You-Go SIM Card in Pakistan",
-    category: "Lebara UK",
-    price: 2500,
     originalPrice: 4500,
-    rating: 4.7,
-    reviewsCount: 88,
-    image: "/lebara/lebara-sim-card.svg",
-    description: "Official Lebara UK SIM with affordable international calling rates. Ideal for UK banking OTPs, PayPal, Wise, and TikTok Live in Pakistan.",
-    isBestSeller: false,
+    rating: 4.9,
+    reviewsCount: 214,
+    image: "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.44 AM.jpeg",
+    description: "Dedicated USA SIM Card designed exclusively for Pakistani TikTokers to unlock USA-only audience targeting, maximize your RPM earnings, and go LIVE on TikTok with a genuine US number (+1). No VPN needed — just insert and start earning higher CPM from US viewers.",
+    isBestSeller: true,
   },
 ];
 
@@ -198,7 +174,11 @@ function ProductsContent() {
 
     // Category filter
     if (selectedCategory !== "all") {
-      result = result.filter((p) => p.category === selectedCategory);
+      if (selectedCategory === "USA TikTok RPM SIM") {
+        result = result.filter((p) => p.id === "usa-tiktok-rpm-sim" || p.name.toLowerCase().includes("tiktok"));
+      } else {
+        result = result.filter((p) => p.category === selectedCategory);
+      }
     }
 
     // Best sellers filter
@@ -297,11 +277,14 @@ function ProductsContent() {
                     { id: "all", label: "All Categories" },
                     { id: "Vodafone UK", label: "Vodafone UK" },
                     { id: "T-Mobile USA", label: "T-Mobile USA" },
-                    { id: "Giffgaff UK", label: "Giffgaff UK" },
-                    { id: "EE UK", label: "EE UK" },
-                    { id: "Lebara UK", label: "Lebara UK" },
+                    { id: "USA TikTok RPM SIM", label: "USA SIM Card for Only TikTok" },
                   ].map((cat) => {
-                    const count = cat.id === "all" ? products.length : products.filter(p => p.category === cat.id).length;
+                    const count =
+                      cat.id === "all"
+                        ? products.length
+                        : cat.id === "USA TikTok RPM SIM"
+                        ? products.filter(p => p.id === "usa-tiktok-rpm-sim" || p.name.toLowerCase().includes("tiktok")).length
+                        : products.filter(p => p.category === cat.id).length;
                     const isSelected = selectedCategory === cat.id;
                     return (
                       <div

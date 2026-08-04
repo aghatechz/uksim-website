@@ -1,17 +1,5 @@
 [
   {
-    "id": "product-1785785557315",
-    "name": "USA sim card for Only  TikTok audience target & Increase RPM",
-    "category": "Vodafone UK",
-    "price": 2000,
-    "originalPrice": 2000,
-    "rating": 5,
-    "reviewsCount": 10,
-    "image": "/uploads/product_1785785587156_yn9rla.jpeg",
-    "description": "USA sim card for Only  TikTok audience target & Increase RPM",
-    "isBestSeller": true
-  },
-  {
     "id": "vodafone-uk-official",
     "name": "Official Vodafone UK Pay-As-You-Go SIM Card",
     "category": "Vodafone UK",
@@ -19,7 +7,7 @@
     "originalPrice": 6000,
     "rating": 5,
     "reviewsCount": 312,
-    "image": "/product pictures/Vodafone_img1_202304.jpg",
+    "image": "/vodafone/WhatsApp Image 2026-08-04 at 3.18.06 AM.jpeg",
     "description": "Factory sealed physical Vodafone UK SIM. Zero monthly contract. Guaranteed UK OTPs, Wise, Monzo, and PayPal UK accounts.",
     "isBestSeller": true
   },
@@ -31,45 +19,9 @@
     "originalPrice": 16000,
     "rating": 4.9,
     "reviewsCount": 189,
-    "image": "/t mobile/images (1).jpg",
+    "image": "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.45 AM.jpeg",
     "description": "Genuine T-Mobile USA SIM with full US number (+1). Roaming in 210+ countries. Ideal for PayPal US & US TikTok Live.",
     "isBestSeller": true
-  },
-  {
-    "id": "giffgaff-uk-sim",
-    "name": "Giffgaff UK SIM Card in Pakistan",
-    "category": "Giffgaff UK",
-    "price": 2000,
-    "originalPrice": 3500,
-    "rating": 4.8,
-    "reviewsCount": 95,
-    "image": "/product pictures/vodafone-sim.png",
-    "description": "Official Giffgaff UK SIM Card delivered across Pakistan. Ideal for TikTok Live, UK banking OTPs, and PayPal verification.",
-    "isBestSeller": true
-  },
-  {
-    "id": "ee-uk-sim",
-    "name": "EE UK Pay-As-You-Go SIM Card in Pakistan",
-    "category": "EE UK",
-    "price": 4000,
-    "originalPrice": 7000,
-    "rating": 4.9,
-    "reviewsCount": 127,
-    "image": "/ee/ee-sim-card.svg",
-    "description": "Official EE UK SIM on the UK's fastest 5G-ready network. Perfect for UK banking OTPs, TikTok Live, PayPal verification, and international roaming without contracts.",
-    "isBestSeller": false
-  },
-  {
-    "id": "lebara-uk-sim",
-    "name": "Lebara UK Pay-As-You-Go SIM Card in Pakistan",
-    "category": "Lebara UK",
-    "price": 2500,
-    "originalPrice": 4500,
-    "rating": 4.7,
-    "reviewsCount": 88,
-    "image": "/lebara/lebara-sim-card.svg",
-    "description": "Official Lebara UK SIM with affordable international calling rates. Ideal for UK banking OTPs, PayPal, Wise, and TikTok Live in Pakistan.",
-    "isBestSeller": false
   },
   {
     "id": "usa-tiktok-rpm-sim",
@@ -79,7 +31,7 @@
     "originalPrice": 4500,
     "rating": 4.9,
     "reviewsCount": 214,
-    "image": "/t mobile/images (1).jpg",
+    "image": "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.44 AM.jpeg",
     "description": "Dedicated USA SIM Card designed exclusively for Pakistani TikTokers to unlock USA-only audience targeting, maximize your RPM earnings, and go LIVE on TikTok with a genuine US number (+1). No VPN needed — just insert and start earning higher CPM from US viewers.",
     "isBestSeller": true
   }

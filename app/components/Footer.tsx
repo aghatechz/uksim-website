@@ -159,14 +159,14 @@ export default function Footer() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 8 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute bottom-full right-0 mb-3 w-64 bg-[#0A0A0A]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3.5 shadow-2xl shadow-red-950/20 z-50 text-left space-y-2.5"
+                  className="absolute bottom-full right-0 mb-3 w-64 bg-white text-slate-900 border border-slate-200 shadow-2xl shadow-slate-950/20 rounded-2xl p-3.5 z-50 text-left space-y-2.5"
                 >
-                  <div className="flex items-center justify-between px-1 pb-1 border-b border-white/10">
-                    <span className="text-[10px] font-black uppercase tracking-wider text-white/70 flex items-center gap-1.5">
+                  <div className="flex items-center justify-between px-1 pb-1.5 border-b border-slate-100">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E60000] animate-pulse" />
                       Get In Touch
                     </span>
-                    <span className="text-[10px] text-white/40 font-semibold">Agha</span>
+                    <span className="text-[10px] text-slate-400 font-bold">Agha</span>
                   </div>
 
                   {/* WhatsApp Option */}
@@ -174,18 +174,18 @@ export default function Footer() {
                     href="https://wa.me/923306853209?text=Hi%20Agha!%20I%20came%20from%20your%20website"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-[#25D366]/15 border border-white/10 hover:border-[#25D366]/40 transition-all duration-200 group"
+                    className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50/80 border border-slate-200/70 hover:border-emerald-300 transition-all duration-200 group"
                   >
-                    <div className="w-8.5 h-8.5 rounded-xl bg-[#25D366]/20 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-8.5 h-8.5 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#128C7E] shrink-0 group-hover:scale-110 transition-transform">
                       <WhatsAppIcon className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs font-bold text-white group-hover:text-[#25D366] transition-colors">
+                      <span className="text-xs font-bold text-slate-900 group-hover:text-[#128C7E] transition-colors">
                         WhatsApp
                       </span>
-                      <span className="text-[10px] text-white/50 font-medium">+92 330 6853209</span>
+                      <span className="text-[10px] text-slate-500 font-semibold">+92 330 6853209</span>
                     </div>
-                    <ExternalLink className="w-3.5 h-3.5 text-white/30 ml-auto group-hover:text-[#25D366] group-hover:translate-x-0.5 transition-all" />
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-400 ml-auto group-hover:text-[#128C7E] group-hover:translate-x-0.5 transition-all" />
                   </a>
 
                   {/* LinkedIn Option */}
@@ -193,18 +193,18 @@ export default function Footer() {
                     href="https://www.linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-[#0A66C2]/15 border border-white/10 hover:border-[#0A66C2]/40 transition-all duration-200 group"
+                    className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 hover:bg-sky-50/80 border border-slate-200/70 hover:border-sky-300 transition-all duration-200 group"
                   >
-                    <div className="w-8.5 h-8.5 rounded-xl bg-[#0A66C2]/20 border border-[#0A66C2]/30 flex items-center justify-center text-[#0A66C2] shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-8.5 h-8.5 rounded-xl bg-[#0A66C2]/15 border border-[#0A66C2]/30 flex items-center justify-center text-[#0A66C2] shrink-0 group-hover:scale-110 transition-transform">
                       <LinkedInIcon className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs font-bold text-white group-hover:text-[#0A66C2] transition-colors">
+                      <span className="text-xs font-bold text-slate-900 group-hover:text-[#0A66C2] transition-colors">
                         LinkedIn
                       </span>
-                      <span className="text-[10px] text-white/50 font-medium">Connect Profile</span>
+                      <span className="text-[10px] text-slate-500 font-semibold">Connect Profile</span>
                     </div>
-                    <ExternalLink className="w-3.5 h-3.5 text-white/30 ml-auto group-hover:text-[#0A66C2] group-hover:translate-x-0.5 transition-all" />
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-400 ml-auto group-hover:text-[#0A66C2] group-hover:translate-x-0.5 transition-all" />
                   </a>
                 </motion.div>
               )}

@@ -12,8 +12,24 @@ const slides = [
   "/hero/images.jpg",
 ];
 
+const productTitles = [
+  {
+    name: "Vodafone UK",
+    colorClass: "gradient-text",
+  },
+  {
+    name: "T-Mobile USA",
+    colorClass: "gradient-text-magenta",
+  },
+  {
+    name: "USA TikTok RPM",
+    colorClass: "bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent",
+  },
+];
+
 export default function Hero({ onOrderClick }: { onOrderClick: () => void }) {
   const [current, setCurrent] = useState(0);
+  const [productIndex, setProductIndex] = useState(0);
 
   const nextSlide = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
@@ -23,6 +39,13 @@ export default function Hero({ onOrderClick }: { onOrderClick: () => void }) {
     const timer = setInterval(nextSlide, 3000);
     return () => clearInterval(timer);
   }, [nextSlide]);
+
+  useEffect(() => {
+    const productTimer = setInterval(() => {
+      setProductIndex((prev) => (prev + 1) % productTitles.length);
+    }, 2800);
+    return () => clearInterval(productTimer);
+  }, []);
 
   return (
     <section
@@ -59,19 +82,30 @@ export default function Hero({ onOrderClick }: { onOrderClick: () => void }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-
-
-          {/* Heading */}
+          {/* Original Font Style Animated Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-            Get Your{" "}
-            <span className="gradient-text">Vodafone UK</span>
+            <span>Get Your </span>
+            <span className="inline-block relative overflow-hidden align-bottom h-[1.2em] min-w-[210px] sm:min-w-[300px] md:min-w-[360px]">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={productTitles[productIndex].name}
+                  initial={{ y: 35, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -35, opacity: 0 }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                  className={`inline-block font-bold ${productTitles[productIndex].colorClass}`}
+                >
+                  {productTitles[productIndex].name}
+                </motion.span>
+              </AnimatePresence>
+            </span>
             <br />
-            SIM Card in Pakistan
+            <span>SIM Card in Pakistan</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Enjoy hassle-free UK mobile access for banking, OTP verification,
+            Enjoy hassle-free UK &amp; USA mobile access for banking, OTP verification,
             TikTok Live streaming, and global connectivity. Cash on delivery
             across Pakistan.
           </p>
