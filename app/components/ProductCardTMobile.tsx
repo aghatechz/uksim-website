@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Star,
@@ -12,10 +12,12 @@ import {
 import Image from "next/image";
 
 const thumbnails = [
-  "/t mobile/new-iphone-purchase-came-with-four-extra-sim-cards-v0-2pp8piqk1pcc1.webp",
-  "/t mobile/images.jpg",
-  "/t mobile/images (1).jpg",
-  "/t mobile/images (7).jpg",
+  "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.45 AM.jpeg",
+  "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.44 AM.jpeg",
+  "/t-mobile/images (1).jpg",
+  "/t-mobile/images (7).jpg",
+  "/t-mobile/new-iphone-purchase-came-with-four-extra-sim-cards-v0-2pp8piqk1pcc1.webp",
+  "/WhatsApp Image 2026-08-04 at 3.28.43 AM.jpeg",
 ];
 
 export default function ProductCardTMobile({
@@ -35,6 +37,14 @@ export default function ProductCardTMobile({
   const [activeThumb, setActiveThumb] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
+  // Auto-rotate thumbnails every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveThumb((prev) => (prev + 1) % thumbnails.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const unitPrice = 10500;
   const originalUnitPrice = 15000;
 
@@ -53,7 +63,7 @@ export default function ProductCardTMobile({
         name: "Official T-Mobile USA Pay-As-You-Go SIM",
         price: unitPrice,
         quantity: quantity,
-        image: "/t mobile/images (1).jpg",
+        image: "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.45 AM.jpeg",
         carrier: "T-Mobile USA",
       });
     } else {
@@ -89,7 +99,7 @@ export default function ProductCardTMobile({
             </h2>
 
             {/* Description */}
-            <p className="text-xs md:text-sm text-gray-500 leading-relaxed mb-6">
+            <p className="text-sm md:text-base text-slate-700 font-medium leading-relaxed mb-6">
               Works for PayPal, US bank verification, genuine US phone numbers, TikTok Live, and global roaming in 210+ countries without monthly contracts.
             </p>
 
@@ -186,17 +196,16 @@ export default function ProductCardTMobile({
               </div>
             </div>
 
-            {/* 4 Thumbnails Grid Row */}
-            <div className="grid grid-cols-4 gap-3 w-full mt-4">
+            {/* 6 Thumbnails Grid Row */}
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5 w-full mt-4">
               {thumbnails.map((imgSrc, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveThumb(idx)}
-                  className={`relative aspect-square rounded-2xl overflow-hidden border-2 transition-all cursor-pointer ${
-                    activeThumb === idx
-                      ? "border-brand-magenta ring-2 ring-brand-magenta/30 scale-105 shadow-md"
-                      : "border-transparent opacity-80 hover:opacity-100 hover:border-gray-200"
-                  }`}
+                  className={`relative aspect-square rounded-2xl overflow-hidden border-2 transition-all cursor-pointer ${activeThumb === idx
+                    ? "border-brand-magenta ring-2 ring-brand-magenta/30 scale-105 shadow-md"
+                    : "border-transparent opacity-80 hover:opacity-100 hover:border-gray-200"
+                    }`}
                 >
                   <Image
                     src={imgSrc}

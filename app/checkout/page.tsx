@@ -78,13 +78,13 @@ function CheckoutContent() {
   const [generatedOrderId, setGeneratedOrderId] = useState("");
 
   // Determine dynamic package details
-  let dynamicImage = imageParam || "/product pictures/Vodafone_img1_202304.jpg";
+  let dynamicImage = imageParam || "/vodafone/WhatsApp Image 2026-08-04 at 3.18.06 AM.jpeg";
   let dynamicCarrier = carrierParam || "Vodafone UK";
   let dynamicPrice = priceParam || 3500;
   let dynamicTitle = pkgParam || "Official Vodafone UK Pay-As-You-Go SIM Card";
 
   if (pkgParam.toLowerCase().includes("t-mobile")) {
-    dynamicImage = imageParam || "/t mobile/images (1).jpg";
+    dynamicImage = imageParam || "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.45 AM.jpeg";
     dynamicCarrier = "T-Mobile USA";
     if (!priceParam) dynamicPrice = 10500;
   } else if (pkgParam.toLowerCase().includes("giffgaff")) {

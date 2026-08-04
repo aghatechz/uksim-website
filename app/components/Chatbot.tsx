@@ -25,13 +25,18 @@ interface Message {
 const KNOWLEDGE_BASE: { keywords: string[]; answer: string; quickReplies?: string[] }[] = [
   {
     keywords: ["price", "cost", "pkg", "package", "kitnay", "rate", "kitne"],
-    answer: "Our Vodafone UK Pay-As-You-Go SIM starts at Rs. 2,500 with FREE Cash on Delivery across Pakistan!\n\n• 1 SIM: Rs. 2,500\n• 2 SIMs Bundle: Rs. 4,800\n• 3 SIMs Value Pack: Rs. 6,900",
-    quickReplies: ["Order SIM Now", "Setup TikTok Live", "Talk on WhatsApp"],
+    answer: "Here are our latest SIM prices with FREE Cash on Delivery across Pakistan:\n\n• Vodafone UK SIM: Rs. 3,500\n• T-Mobile USA SIM: Rs. 10,500\n• USA TikTok RPM SIM: Rs. 2,000",
+    quickReplies: ["Order SIM Now", "TikTok RPM SIM", "Talk on WhatsApp"],
   },
   {
     keywords: ["tiktok", "live", "stream", "monetization"],
-    answer: "Yes! Our Vodafone UK & T-Mobile USA SIM cards are 100% genuine physical SIMs. Simply insert into your unlocked phone to unblock native TikTok LIVE & monetization options without needing any VPN!",
-    quickReplies: ["SIM Packages", "How to Activate", "Talk on WhatsApp"],
+    answer: "Yes! Our SIM cards unlock native TikTok LIVE & monetization without VPN!\n\nFor TikTok creators, we have a special:\n\n🇺🇸 USA TikTok RPM SIM — Only Rs. 2,000!\nTarget USA-only audience, increase your RPM/CPM earnings, and go LIVE with a genuine US number (+1).",
+    quickReplies: ["TikTok RPM SIM", "SIM Packages", "Talk on WhatsApp"],
+  },
+  {
+    keywords: ["rpm", "cpm", "earnings", "usa audience", "tiktok rpm", "target", "audience"],
+    answer: "🇺🇸 USA SIM Card for TikTok Audience Target & Increase RPM\n\nPrice: Rs. 2,000 only!\n\n✅ Target USA-only audience on TikTok\n✅ Increase RPM & CPM earnings\n✅ Go LIVE with genuine US number (+1)\n✅ No VPN needed — just insert & start earning\n✅ FREE Cash on Delivery across Pakistan",
+    quickReplies: ["Order SIM Now", "SIM Packages", "Talk on WhatsApp"],
   },
   {
     keywords: ["activate", "activation", "chalayein", "chale gi", "setup"],

@@ -49,11 +49,11 @@ export default function CheckoutModal({
   const [orderId, setOrderId] = useState("");
 
   // Determine thumbnail image & carrier dynamically
-  let pkgImage = selectedImage || "/product pictures/Vodafone_img1_202304.jpg";
+  let pkgImage = selectedImage || "/vodafone/WhatsApp Image 2026-08-04 at 3.18.06 AM.jpeg";
   let pkgCarrier = selectedCarrier || "Vodafone UK";
 
   if (selectedPackage && selectedPackage.toLowerCase().includes("t-mobile")) {
-    pkgImage = "/t mobile/images (1).jpg";
+    pkgImage = "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.45 AM.jpeg";
     pkgCarrier = "T-Mobile USA";
   } else if (selectedPackage && selectedPackage.toLowerCase().includes("giffgaff")) {
     pkgImage = "/product pictures/vodafone-sim.png";

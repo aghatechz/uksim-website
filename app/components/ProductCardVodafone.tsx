@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Star,
@@ -12,11 +12,12 @@ import {
 import Image from "next/image";
 
 const thumbnails = [
+  "/vodafone/WhatsApp Image 2026-08-04 at 3.18.06 AM.jpeg",
+  "/vodafone/WhatsApp Image 2026-08-04 at 3.18.07 AM.jpeg",
+  "/vodafone/WhatsApp Image 2026-08-04 at 3.19.15 AM.jpeg",
+  "/vodafone/WhatsApp Image 2026-08-04 at 3.20.28 AM.jpeg",
   "/product pictures/Vodafone_img1_202304.jpg",
-  "/product pictures/images (1).jpg",
-  "/product pictures/images (2).jpg",
-  "/product pictures/images (3).jpg",
-  "/product pictures/images (4).jpg",
+  "/vodafone/WhatsApp Image 2026-08-01 at 10.00.16 AM (2).jpeg",
 ];
 
 export default function ProductCardVodafone({
@@ -36,6 +37,14 @@ export default function ProductCardVodafone({
   const [activeThumb, setActiveThumb] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
+  // Auto-rotate thumbnails every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveThumb((prev) => (prev + 1) % thumbnails.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const unitPrice = 3500;
   const originalUnitPrice = 6000;
 
@@ -54,7 +63,7 @@ export default function ProductCardVodafone({
         name: "Official Vodafone UK Pay-As-You-Go SIM",
         price: unitPrice,
         quantity: quantity,
-        image: "/product pictures/Vodafone_img1_202304.jpg",
+        image: "/vodafone/WhatsApp Image 2026-08-04 at 3.18.06 AM.jpeg",
         carrier: "Vodafone UK",
       });
     } else {
@@ -87,17 +96,16 @@ export default function ProductCardVodafone({
               </div>
             </div>
 
-            {/* 5 Thumbnails Grid Row */}
-            <div className="grid grid-cols-5 gap-2.5 w-full mt-4">
+            {/* 6 Thumbnails Grid Row */}
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5 w-full mt-4">
               {thumbnails.map((imgSrc, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveThumb(idx)}
-                  className={`relative aspect-square rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
-                    activeThumb === idx
-                      ? "border-red-600 ring-2 ring-red-600/30 scale-105 shadow-md"
-                      : "border-transparent opacity-80 hover:opacity-100 hover:border-gray-200"
-                  }`}
+                  className={`relative aspect-square rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${activeThumb === idx
+                    ? "border-red-600 ring-2 ring-red-600/30 scale-105 shadow-md"
+                    : "border-transparent opacity-80 hover:opacity-100 hover:border-gray-200"
+                    }`}
                 >
                   <Image
                     src={imgSrc}
@@ -134,7 +142,7 @@ export default function ProductCardVodafone({
             </h2>
 
             {/* Description */}
-            <p className="text-xs md:text-sm text-gray-500 leading-relaxed mb-6">
+            <p className="text-sm md:text-base text-slate-700 font-medium leading-relaxed mb-6">
               Works perfectly for TikTok Live in Pakistan, UK number verification for PayPal/Stripe, and international roaming without monthly contracts.
             </p>
 

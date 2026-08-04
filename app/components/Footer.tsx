@@ -1,8 +1,25 @@
 "use client";
 
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
+const WhatsAppIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12.012 2c-5.506 0-9.98 4.473-9.98 9.978 0 1.763.459 3.483 1.332 4.992l-1.417 5.176 5.305-1.392a9.923 9.923 0 0 0 4.76 1.202h.004c5.505 0 9.98-4.473 9.98-9.978 0-2.665-1.037-5.17-2.922-7.056A9.914 9.914 0 0 0 12.012 2zm5.727 14.185c-.24.674-1.396 1.288-1.92 1.344-.492.053-1.127.086-3.633-.943-3.21-1.317-5.263-4.577-5.424-4.79-.159-.214-1.302-1.733-1.302-3.307 0-1.573.82-2.348 1.11-2.666.241-.264.529-.33.705-.33.176 0 .353.002.506.01.161.008.38.016.58.496.24.576.818 1.996.89 2.14.072.144.119.312.024.504-.095.192-.143.312-.287.48-.144.168-.303.375-.432.504-.144.144-.294.301-.126.589.168.288.75 1.237 1.608 2.001 1.103.982 2.033 1.287 2.321 1.431.288.144.456.12.624-.072.168-.192.72-.84.912-1.128.192-.288.384-.24.648-.144.264.096 1.68.792 1.968.936.288.144.48.216.552.336.072.12.072.696-.168 1.37z"/>
+  </svg>
+);
+
+const LinkedInIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z" />
+  </svg>
+);
+
 export default function Footer() {
+  const [showAghaPopover, setShowAghaPopover] = useState(false);
+
   return (
     <footer className="bg-[#050505] text-white pt-16 pb-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
@@ -126,9 +143,73 @@ export default function Footer() {
         {/* Bottom Copyright Bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
           <p>© 2026 Vodafone UK Pakistan. All rights reserved.</p>
-          <Link href="/admin" className="hover:text-white/80 transition-colors flex items-center gap-1">
-            <span>🔒 Admin Portal</span>
-          </Link>
+
+          <div className="relative">
+            <button
+              onClick={() => setShowAghaPopover(!showAghaPopover)}
+              className="font-semibold text-white/70 hover:text-white transition-all cursor-pointer flex items-center gap-1.5 bg-white/5 hover:bg-[#E60000]/20 hover:border-[#E60000]/50 px-3.5 py-1.5 rounded-full border border-white/10 shadow-xs group"
+            >
+              <span>Developed by <strong className="text-white font-extrabold group-hover:text-[#E60000] transition-colors">Agha</strong></span>
+            </button>
+
+            <AnimatePresence>
+              {showAghaPopover && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95, y: 8 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 8 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute bottom-full right-0 mb-3 w-64 bg-[#0A0A0A]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-3.5 shadow-2xl shadow-red-950/20 z-50 text-left space-y-2.5"
+                >
+                  <div className="flex items-center justify-between px-1 pb-1 border-b border-white/10">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-white/70 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E60000] animate-pulse" />
+                      Get In Touch
+                    </span>
+                    <span className="text-[10px] text-white/40 font-semibold">Agha</span>
+                  </div>
+
+                  {/* WhatsApp Option */}
+                  <a
+                    href="https://wa.me/923306853209?text=Hi%20Agha!%20I%20came%20from%20your%20website"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-[#25D366]/15 border border-white/10 hover:border-[#25D366]/40 transition-all duration-200 group"
+                  >
+                    <div className="w-8.5 h-8.5 rounded-xl bg-[#25D366]/20 border border-[#25D366]/30 flex items-center justify-center text-[#25D366] shrink-0 group-hover:scale-110 transition-transform">
+                      <WhatsAppIcon className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-white group-hover:text-[#25D366] transition-colors">
+                        WhatsApp
+                      </span>
+                      <span className="text-[10px] text-white/50 font-medium">+92 330 6853209</span>
+                    </div>
+                    <ExternalLink className="w-3.5 h-3.5 text-white/30 ml-auto group-hover:text-[#25D366] group-hover:translate-x-0.5 transition-all" />
+                  </a>
+
+                  {/* LinkedIn Option */}
+                  <a
+                    href="https://www.linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-[#0A66C2]/15 border border-white/10 hover:border-[#0A66C2]/40 transition-all duration-200 group"
+                  >
+                    <div className="w-8.5 h-8.5 rounded-xl bg-[#0A66C2]/20 border border-[#0A66C2]/30 flex items-center justify-center text-[#0A66C2] shrink-0 group-hover:scale-110 transition-transform">
+                      <LinkedInIcon className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold text-white group-hover:text-[#0A66C2] transition-colors">
+                        LinkedIn
+                      </span>
+                      <span className="text-[10px] text-white/50 font-medium">Connect Profile</span>
+                    </div>
+                    <ExternalLink className="w-3.5 h-3.5 text-white/30 ml-auto group-hover:text-[#0A66C2] group-hover:translate-x-0.5 transition-all" />
+                  </a>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </footer>

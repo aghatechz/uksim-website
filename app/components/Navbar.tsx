@@ -6,16 +6,10 @@ import {
   Menu,
   X,
   ShoppingCart,
-  Phone,
   Wifi,
-  Globe,
   Heart,
   Search,
   ArrowRight,
-  ShieldCheck,
-  Truck,
-  Sparkles,
-  CheckCircle2,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,12 +17,12 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCart } from "./CartProvider";
 
 const topBarAnnouncements = [
-  { icon: Phone, text: "WhatsApp & Call Support: +92 340 8219725", highlight: "24/7 Active" },
-  { icon: Globe, text: "Official Vodafone UK & T-Mobile USA SIM Distributor in Pakistan", highlight: "100% Genuine" },
-  { icon: CheckCircle2, text: "Free Cash on Delivery (COD) All Over Pakistan", highlight: "Zero Shipping Fee" },
-  { icon: Sparkles, text: "TikTok Live & Monetization Guaranteed Unblock", highlight: "No VPN Needed" },
-  { icon: ShieldCheck, text: "Instant OTP SMS Verification for Wise, PayPal, Monzo & Banks", highlight: "Verified" },
-  { icon: Truck, text: "Same-Day Dispatch • 2 to 3 Working Days Delivery", highlight: "Fast Shipping" },
+  "WhatsApp & Call Support: +92 340 8219725",
+  "Official Vodafone UK & T-Mobile USA SIM Distributor in Pakistan",
+  "Free Cash on Delivery (COD) All Over Pakistan",
+  "TikTok Live & Monetization Guaranteed Unblock",
+  "Instant OTP SMS Verification for Wise, PayPal, Monzo & Banks",
+  "Same-Day Dispatch • 2 to 3 Working Days Delivery",
 ];
 
 const navLinks = [
@@ -46,14 +40,14 @@ const searchableProducts = [
     id: "vodafone-uk-official",
     name: "Official Vodafone UK Pay-As-You-Go SIM Card",
     price: 3500,
-    image: "/product pictures/Vodafone_img1_202304.jpg",
+    image: "/vodafone/WhatsApp Image 2026-08-04 at 3.18.06 AM.jpeg",
     carrier: "Vodafone UK",
   },
   {
     id: "tmobile-usa-official",
     name: "Official T-Mobile USA Pay-As-You-Go SIM Card",
     price: 10500,
-    image: "/t mobile/images (1).jpg",
+    image: "/t-mobile/WhatsApp Image 2026-08-04 at 3.28.45 AM.jpeg",
     carrier: "T-Mobile USA",
   },
   {
@@ -150,32 +144,26 @@ export default function Navbar({
               className="bg-gradient-to-r from-[#B30000] via-[#E60000] to-[#990000] text-white text-[11.5px] py-2 overflow-hidden border-b border-red-700/60 shadow-xs relative"
             >
               <div className="flex animate-marquee whitespace-nowrap items-center hover:[animation-play-state:paused] cursor-pointer">
-                {[...topBarAnnouncements, ...topBarAnnouncements].map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={idx} className="flex items-center gap-2 mx-6 shrink-0">
-                      <span className="bg-white/15 px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-red-100 border border-white/20">
-                        {item.highlight}
-                      </span>
-                      <Icon className="w-3.5 h-3.5 text-white shrink-0" />
-                      <span className="text-white font-bold">{item.text}</span>
-                      <span className="text-white/40 ml-4 font-bold">•</span>
-                    </div>
-                  );
-                })}
+                {[...topBarAnnouncements, ...topBarAnnouncements].map((text, idx) => (
+                  <div key={idx} className="mx-16 shrink-0">
+                    <span className="text-white font-extrabold uppercase tracking-wider text-[11px]">
+                      {text}
+                    </span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
         {/* Main Navbar */}
-        <div
-          className={`transition-all duration-300 ${isTransparentTheme
-            ? "bg-transparent py-4"
-            : "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3"
-            }`}
-        >
-          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mt-1.5">
+          <nav
+            className={`transition-all duration-300 ${isTransparentTheme
+              ? "bg-transparent py-3 px-2"
+              : "bg-white/80 backdrop-blur-md shadow-md border border-slate-200/50 rounded-2xl py-2.5 px-4 sm:px-6"
+              }`}
+          >
             <div className="flex items-center justify-between">
 
               {/* Left Brand Logo */}
@@ -214,13 +202,9 @@ export default function Navbar({
                       key={link.label}
                       href={link.href}
                       onClick={() => handleNavClick(link)}
-                      className={`px-3.5 py-2 text-xs font-black transition-all rounded-xl ${isTransparentTheme
-                        ? isActive
-                          ? "text-white font-black"
-                          : "text-white/90 hover:text-white hover:bg-white/10"
-                        : isActive
-                          ? "bg-red-50 text-[#E60000]"
-                          : "text-slate-700 hover:text-[#E60000] hover:bg-slate-100"
+                      className={`px-3 py-2 text-sm font-bold transition-colors ${isTransparentTheme
+                        ? "text-white/90 hover:text-white"
+                        : "text-slate-800 hover:text-[#E60000]"
                         }`}
                     >
                       {link.label}
@@ -290,20 +274,34 @@ export default function Navbar({
               </div>
 
               {/* Mobile Actions & Menu Toggle */}
-              <div className="flex items-center gap-1.5 lg:hidden">
+              <div className="flex items-center gap-1 sm:gap-1.5 lg:hidden">
                 <button
                   onClick={() => setSearchOpen(!searchOpen)}
+                  title="Search SIM Packages"
                   className={`p-2 rounded-xl ${isTransparentTheme ? "text-white" : "text-slate-800"}`}
                 >
                   <Search className="w-5 h-5" />
                 </button>
                 <button
+                  onClick={openWishlist}
+                  title="Open Wishlist"
+                  className={`p-2 rounded-xl relative ${isTransparentTheme ? "text-white" : "text-slate-800"}`}
+                >
+                  <Heart className="w-5 h-5" />
+                  {wishlistItems.length > 0 && (
+                    <span className="absolute top-1 right-1 bg-[#E60000] text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center border border-white shadow-xs">
+                      {wishlistItems.length}
+                    </span>
+                  )}
+                </button>
+                <button
                   onClick={openCart}
+                  title="Open Shopping Cart"
                   className={`p-2 rounded-xl relative ${isTransparentTheme ? "text-white" : "text-slate-800"}`}
                 >
                   <ShoppingCart className="w-5 h-5" />
                   {cartCount > 0 && (
-                    <span className="absolute top-1 right-1 bg-[#E60000] text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">
+                    <span className="absolute top-1 right-1 bg-[#E60000] text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center border border-white shadow-xs">
                       {cartCount}
                     </span>
                   )}
@@ -399,48 +397,48 @@ export default function Navbar({
               )}
             </AnimatePresence>
           </nav>
+
+          {/* Mobile Drawer Menu */}
+          <AnimatePresence>
+            {mobileOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="mt-2 bg-white/95 backdrop-blur-xl border border-slate-200/80 rounded-2xl shadow-2xl lg:hidden p-5 space-y-4 overflow-hidden"
+              >
+                <div className="flex flex-col space-y-2">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => {
+                        setMobileOpen(false);
+                        handleNavClick(link);
+                      }}
+                      className="px-4 py-2.5 text-sm font-extrabold text-slate-800 hover:text-[#E60000] hover:bg-red-50 rounded-xl transition-all"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-3">
+                  <button
+                    onClick={() => {
+                      setMobileOpen(false);
+                      handleOrderSimClick();
+                    }}
+                    className="w-full bg-[#E60000] text-white py-3 rounded-xl text-xs font-black uppercase tracking-wider shadow-md flex items-center justify-center gap-2"
+                  >
+                    <ShoppingCart className="w-4 h-4" /> Order SIM Now
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </header>
-
-      {/* Mobile Drawer Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="fixed top-[56px] left-0 right-0 z-30 bg-white border-b border-slate-200 shadow-2xl lg:hidden p-5 space-y-4"
-          >
-            <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => {
-                    setMobileOpen(false);
-                    handleNavClick(link);
-                  }}
-                  className="px-4 py-2.5 text-sm font-extrabold text-slate-800 hover:text-[#E60000] hover:bg-red-50 rounded-xl transition-all"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            <div className="pt-3 border-t border-slate-100 flex items-center gap-3">
-              <button
-                onClick={() => {
-                  setMobileOpen(false);
-                  handleOrderSimClick();
-                }}
-                className="w-full bg-[#E60000] text-white py-3 rounded-xl text-xs font-black uppercase tracking-wider shadow-md flex items-center justify-center gap-2"
-              >
-                <ShoppingCart className="w-4 h-4" /> Order SIM Now
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
     </>
   );

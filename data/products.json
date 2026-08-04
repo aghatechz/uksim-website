@@ -1,5 +1,17 @@
 [
   {
+    "id": "product-1785785557315",
+    "name": "USA sim card for Only  TikTok audience target & Increase RPM",
+    "category": "Vodafone UK",
+    "price": 2000,
+    "originalPrice": 2000,
+    "rating": 5,
+    "reviewsCount": 10,
+    "image": "/uploads/product_1785785587156_yn9rla.jpeg",
+    "description": "USA sim card for Only  TikTok audience target & Increase RPM",
+    "isBestSeller": true
+  },
+  {
     "id": "vodafone-uk-official",
     "name": "Official Vodafone UK Pay-As-You-Go SIM Card",
     "category": "Vodafone UK",
@@ -24,6 +36,18 @@
     "isBestSeller": true
   },
   {
+    "id": "giffgaff-uk-sim",
+    "name": "Giffgaff UK SIM Card in Pakistan",
+    "category": "Giffgaff UK",
+    "price": 2000,
+    "originalPrice": 3500,
+    "rating": 4.8,
+    "reviewsCount": 95,
+    "image": "/product pictures/vodafone-sim.png",
+    "description": "Official Giffgaff UK SIM Card delivered across Pakistan. Ideal for TikTok Live, UK banking OTPs, and PayPal verification.",
+    "isBestSeller": true
+  },
+  {
     "id": "ee-uk-sim",
     "name": "EE UK Pay-As-You-Go SIM Card in Pakistan",
     "category": "EE UK",
@@ -34,5 +58,29 @@
     "image": "/ee/ee-sim-card.svg",
     "description": "Official EE UK SIM on the UK's fastest 5G-ready network. Perfect for UK banking OTPs, TikTok Live, PayPal verification, and international roaming without contracts.",
     "isBestSeller": false
+  },
+  {
+    "id": "lebara-uk-sim",
+    "name": "Lebara UK Pay-As-You-Go SIM Card in Pakistan",
+    "category": "Lebara UK",
+    "price": 2500,
+    "originalPrice": 4500,
+    "rating": 4.7,
+    "reviewsCount": 88,
+    "image": "/lebara/lebara-sim-card.svg",
+    "description": "Official Lebara UK SIM with affordable international calling rates. Ideal for UK banking OTPs, PayPal, Wise, and TikTok Live in Pakistan.",
+    "isBestSeller": false
+  },
+  {
+    "id": "usa-tiktok-rpm-sim",
+    "name": "USA SIM Card for Only TikTok Audience Target & Increase RPM",
+    "category": "T-Mobile USA",
+    "price": 2000,
+    "originalPrice": 4500,
+    "rating": 4.9,
+    "reviewsCount": 214,
+    "image": "/t mobile/images (1).jpg",
+    "description": "Dedicated USA SIM Card designed exclusively for Pakistani TikTokers to unlock USA-only audience targeting, maximize your RPM earnings, and go LIVE on TikTok with a genuine US number (+1). No VPN needed — just insert and start earning higher CPM from US viewers.",
+    "isBestSeller": true
   }
 ]

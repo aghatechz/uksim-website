@@ -78,6 +78,18 @@ const defaultProducts: ProductItem[] = [
     description: "Official Lebara UK SIM with affordable international calling rates. Ideal for UK banking OTPs, PayPal, Wise, and TikTok Live in Pakistan.",
     isBestSeller: false,
   },
+  {
+    id: "usa-tiktok-rpm-sim",
+    name: "USA SIM Card for Only TikTok Audience Target & Increase RPM",
+    category: "T-Mobile USA",
+    price: 2000,
+    originalPrice: 4500,
+    rating: 4.9,
+    reviewsCount: 214,
+    image: "/t mobile/images (1).jpg",
+    description: "Dedicated USA SIM Card designed exclusively for Pakistani TikTokers to unlock USA-only audience targeting, maximize your RPM earnings, and go LIVE on TikTok with a genuine US number (+1). No VPN needed — just insert and start earning higher CPM from US viewers.",
+    isBestSeller: true,
+  },
 ];
 
 function ensureFileExists() {

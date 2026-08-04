@@ -54,17 +54,25 @@ export default function FeaturesGrid() {
             <motion.div
               key={f.title}
               variants={itemVariants}
-              className="card-hover text-center p-6 rounded-2xl bg-surface-light border border-transparent hover:border-gray-200 transition-all"
+              className="group relative overflow-hidden text-center p-6 sm:p-7 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:border-red-200/80 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
             >
-              <div className="w-12 h-12 mx-auto mb-4 bg-red-50 rounded-xl flex items-center justify-center">
-                <f.icon className="w-6 h-6 text-brand-red" />
+              {/* Bottom Red Ambient Gradient (Fades in on Hover) */}
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#E60000]/15 via-[#E60000]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-b-2xl" />
+
+              {/* Bottom Red Accent Stroke Line */}
+              <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#E60000] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-b-2xl shadow-[0_0_8px_#E60000]" />
+
+              <div className="relative z-10">
+                <div className="w-12 h-12 mx-auto mb-4 bg-red-50 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-[#E60000] transition-all duration-300 border border-red-100">
+                  <f.icon className="w-6 h-6 text-[#E60000] group-hover:text-white transition-colors duration-300" />
+                </div>
+                <h3 className="text-base font-extrabold text-[#0F172A] tracking-tight mb-1.5 group-hover:text-[#E60000] transition-colors">
+                  {f.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                  {f.desc}
+                </p>
               </div>
-              <h3 className="text-base font-extrabold text-[#0F172A] tracking-tight mb-1.5">
-                {f.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                {f.desc}
-              </p>
             </motion.div>
           ))}
         </motion.div>

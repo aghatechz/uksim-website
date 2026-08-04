@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import CartProvider from "./components/CartProvider";
+import AnalyticsTracker from "./components/AnalyticsTracker";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -91,6 +92,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`h-full antialiased ${jakarta.variable} ${outfit.variable}`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col overflow-x-hidden font-sans bg-slate-50 text-slate-900 selection:bg-red-500 selection:text-white" suppressHydrationWarning>
+        <AnalyticsTracker />
         <CartProvider>{children}</CartProvider>
       </body>
     </html>

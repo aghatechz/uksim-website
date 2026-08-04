@@ -7,33 +7,33 @@ import { Plus, X, ArrowRight } from "lucide-react";
 const faqs = [
   {
     num: "01",
-    q: "Is SIM ko chalane ke liye VPN ki zaroorat hai?",
-    a: "Bilkul nahi. Yeh original physical UK SIM card hai. Bas apne mobile mein insert karein aur TikTok open karein — native LIVE option automatically appear ho jayega.",
+    q: "Do I need a VPN to use this SIM card?",
+    a: "No VPN is required. This is an original physical SIM card. Simply insert it into your phone and TikTok LIVE and global apps will work automatically.",
   },
   {
     num: "02",
-    q: "Kya non–PTA mobile phone mein yeh SIM kaam karegi?",
-    a: "Ji haan, physical SIM roaming par PTA block nahi hoti operational period tak. Aap non-PTA phone mein bhi initial period ke liye direct use kar sakte hain.",
+    q: "Will this SIM card work on a Non-PTA mobile phone?",
+    a: "Yes! Physical international SIM cards operate on global roaming in Pakistan and work smoothly on non-PTA phones during their valid roaming period.",
   },
   {
     num: "03",
-    q: "Kya har mahine balance daalna ya recharge karwana parega?",
-    a: "SIM ko active rakhne ke liye har 6 mahine (180 days) mein sirf ek SMS ya small top-up zaroori hota hai taake number lifetime active rahe.",
+    q: "Do I need to recharge or top-up every month?",
+    a: "No monthly contracts or auto-debits required. To keep your SIM active lifetime, you only need to send one SMS or do a small top-up once every 6 months (180 days).",
   },
   {
     num: "04",
-    q: "Is SIM se TikTok monetization aur UK OTPs mil jayein ge?",
-    a: "Ji haan! Original UK number hai tou sabhi UK banking, PayPal, Wise, Stripe aur TikTok Live/Monetization verification OTPs 100% receive honge.",
+    q: "Can I receive OTP verification codes for Wise, PayPal & TikTok?",
+    a: "Yes! Since these are genuine UK & USA phone numbers, all UK/US banking, PayPal, Wise, Stripe, Monzo, and TikTok Live verification SMS OTPs arrive 100% instantly.",
   },
   {
     num: "05",
-    q: "Delivery ka process aur payment mode kya hai?",
-    a: "Pakistan ke tamam shahron mein Cash on Delivery (COD) available hai. Delivery 2-3 working days mein aap ke ghar tak pohnch jaye gi.",
+    q: "How does Cash on Delivery (COD) work in Pakistan?",
+    a: "We offer Free Cash on Delivery across all major cities in Pakistan. You pay cash to the rider only when your SIM card package arrives at your doorstep (takes 2-3 business days).",
   },
 ];
 
 export default function FAQAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // First FAQ expanded by default like screenshot
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section id="faq" className="py-16 sm:py-20 md:py-24 bg-[#F4F7FB]">
@@ -46,8 +46,6 @@ export default function FAQAccordion() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-
-
           <h2 className="text-3xl sm:text-4xl md:text-[44px] font-extrabold text-[#0F172A] tracking-tight leading-[1.18]">
             Frequently Asked Questions
           </h2>
@@ -72,12 +70,9 @@ export default function FAQAccordion() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between p-6 text-left"
+                  className="w-full flex items-center justify-between p-6 text-left cursor-pointer"
                 >
-                  <div className="flex items-center gap-5 flex-1 pr-4">
-                    <span className="text-sm font-bold text-gray-400">
-                      {faq.num}
-                    </span>
+                  <div className="flex-1 pr-4">
                     <h3 className="text-base md:text-lg font-bold text-[#0F172A] leading-snug">
                       {faq.q}
                     </h3>
@@ -87,7 +82,7 @@ export default function FAQAccordion() {
                     className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
                       isOpen
                         ? "bg-gray-100 text-gray-800"
-                        : "bg-[#0F172A] text-white hover:bg-brand-red"
+                        : "bg-[#0F172A] text-white hover:bg-[#E60000]"
                     }`}
                   >
                     {isOpen ? (
@@ -107,7 +102,7 @@ export default function FAQAccordion() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 pt-0 ml-10 text-sm md:text-base text-gray-600 leading-relaxed font-normal">
+                      <div className="px-6 pb-6 pt-0 text-sm md:text-base text-gray-600 leading-relaxed font-normal">
                         {faq.a}
                       </div>
                     </motion.div>
@@ -133,7 +128,7 @@ export default function FAQAccordion() {
             href="https://wa.me/923408219725?text=Hi!%20I%20have%20a%20question%20about%20SIM%20cards"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0F172A] hover:text-brand-red transition-colors group"
+            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0F172A] hover:text-[#E60000] transition-colors group"
           >
             WhatsApp Support
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

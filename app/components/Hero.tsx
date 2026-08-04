@@ -59,13 +59,7 @@ export default function Hero({ onOrderClick }: { onOrderClick: () => void }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-6">
-            <Shield className="w-4 h-4 text-brand-red" />
-            <span className="text-xs font-medium text-white/90 tracking-wide uppercase">
-              Official UK & USA SIM Distributor
-            </span>
-          </div>
+
 
           {/* Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
