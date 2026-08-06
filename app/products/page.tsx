@@ -499,7 +499,7 @@ function ProductsContent() {
                       >
                         <div>
                           {/* Card Image Container */}
-                          <div className="relative aspect-square w-full rounded-2xl bg-[#F8FAFC] overflow-hidden mb-3 border border-slate-100 flex items-center justify-center">
+                          <Link href={`/products/${product.id}`} className="block relative aspect-square w-full rounded-2xl bg-[#F8FAFC] overflow-hidden mb-3 border border-slate-100 flex items-center justify-center">
                             <Image
                               src={product.image}
                               alt={product.name}
@@ -546,7 +546,7 @@ function ProductsContent() {
                                 <ShoppingCart className="w-4 h-4" />
                               </button>
                             </div>
-                          </div>
+                          </Link>
 
                           {/* Category Subtitle & Rating Pill */}
                           <div className="flex items-center justify-between mb-1.5 text-xs">
@@ -560,9 +560,11 @@ function ProductsContent() {
                           </div>
 
                           {/* Product Title */}
-                          <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-2 line-clamp-2 group-hover:text-[#E60000] transition-colors">
-                            {product.name}
-                          </h3>
+                          <Link href={`/products/${product.id}`}>
+                            <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-2 line-clamp-2 group-hover:text-[#E60000] transition-colors cursor-pointer">
+                              {product.name}
+                            </h3>
+                          </Link>
 
                           {/* Prices */}
                           <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold mb-4">

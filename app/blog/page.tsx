@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Chatbot from "../components/Chatbot";
@@ -8,7 +8,7 @@ import SalesToast from "../components/SalesToast";
 import CheckoutModal from "../components/CheckoutModal";
 import Link from "next/link";
 import Image from "next/image";
-import { blogPosts } from "../../lib/blogData";
+import { blogPosts as fallbackBlogPosts, BlogPost } from "../../lib/blogData";
 import {
   Search,
   Calendar,
@@ -26,6 +26,22 @@ export default function BlogListingPage() {
   const [selectedPkg, setSelectedPkg] = useState("Vodafone UK 1 SIM Card");
   const [selectedPrice, setSelectedPrice] = useState(3500);
 
+  const [posts, setPosts] = useState<BlogPost[]>(fallbackBlogPosts);
+
+  useEffect(() => {
+    fetch("/api/blogs")
+      .then((res) => {
+        if (!res.ok) throw new Error("HTTP Error " + res.status);
+        return res.json();
+      })
+      .then((data) => {
+        if (data.success && data.blogs && data.blogs.length > 0) {
+          setPosts(data.blogs);
+        }
+      })
+      .catch((err) => console.warn("Using fallback blog data:", err));
+  }, []);
+
   // Search & Category Filters
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -38,19 +54,19 @@ export default function BlogListingPage() {
   };
 
   const filteredPosts = useMemo(() => {
-    return blogPosts.filter((post) => {
+    return posts.filter((post) => {
       const matchesSearch =
         searchQuery === "" ||
         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.keywords.some((k) => k.toLowerCase().includes(searchQuery.toLowerCase()));
+        (post.keywords && post.keywords.some((k) => k.toLowerCase().includes(searchQuery.toLowerCase())));
 
       const matchesCategory =
         activeCategory === "All" || post.category === activeCategory;
 
       return matchesSearch && matchesCategory;
     });
-  }, [searchQuery, activeCategory]);
+  }, [posts, searchQuery, activeCategory]);
 
   return (
     <>

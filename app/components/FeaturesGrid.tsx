@@ -54,13 +54,13 @@ export default function FeaturesGrid() {
             <motion.div
               key={f.title}
               variants={itemVariants}
-              className="group relative overflow-hidden text-center p-6 sm:p-7 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:border-red-200/80 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+              className="group relative overflow-hidden text-center p-6 sm:p-7 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:border-red-200/60 hover:shadow-lg hover:shadow-slate-900/5 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
             >
               {/* Bottom Red Ambient Gradient (Fades in on Hover) */}
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#E60000]/15 via-[#E60000]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-b-2xl" />
+              <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#E60000]/6 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-b-2xl" />
 
               {/* Bottom Red Accent Stroke Line */}
-              <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#E60000] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-b-2xl shadow-[0_0_8px_#E60000]" />
+              <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#E60000]/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center rounded-b-2xl" />
 
               <div className="relative z-10">
                 <div className="w-12 h-12 mx-auto mb-4 bg-red-50 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-[#E60000] transition-all duration-300 border border-red-100">

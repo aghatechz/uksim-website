@@ -7,9 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const slides = [
-  "/hero/2836146903_d58d601414_b.jpg",
-  "/hero/Iarchitects Web Gambling Gacor.jpg",
-  "/hero/images.jpg",
+  "/hero/1st.png",
+  "/hero/2nd.png",
+  "/hero/3rd.png",
 ];
 
 const productTitles = [
@@ -159,11 +159,10 @@ export default function Hero({ onOrderClick }: { onOrderClick: () => void }) {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === current
+            className={`h-1.5 rounded-full transition-all duration-300 ${i === current
                 ? "w-8 bg-brand-red"
                 : "w-3 bg-white/40 hover:bg-white/60"
-            }`}
+              }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}

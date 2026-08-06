@@ -52,9 +52,9 @@ export default function CountdownPromo({
       {/* Giant Outlined Watermark "Vodafone" */}
       <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none select-none overflow-hidden">
         <span
-          className="text-[18vw] font-black uppercase text-transparent tracking-tighter leading-none whitespace-nowrap opacity-20"
+          className="text-[18vw] font-black uppercase text-white/10 tracking-tighter leading-none whitespace-nowrap opacity-40 select-none"
           style={{
-            WebkitTextStroke: "2px rgba(255, 255, 255, 0.4)",
+            WebkitTextStroke: "2.5px rgba(255, 255, 255, 0.75)",
           }}
         >
           Vodafone

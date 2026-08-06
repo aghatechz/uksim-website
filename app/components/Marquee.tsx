@@ -2,6 +2,16 @@
 
 const brandImages = [
   {
+    name: "Amazon Logo",
+    src: "/trusted companies/amazon.svg",
+    className: "h-8 md:h-10 w-auto object-contain max-w-[140px] md:max-w-[180px]",
+  },
+  {
+    name: "Telegram Logo",
+    src: "/trusted companies/telegram.svg",
+    className: "h-9 md:h-11 w-auto object-contain max-w-[150px] md:max-w-[190px]",
+  },
+  {
     name: "Brand Logo 1",
     src: "/trusted companies/4c88f4a75f2e447c4c088b6a1aa4710d.png",
     className: "h-8 md:h-10 w-auto object-contain max-w-[140px] md:max-w-[180px]",

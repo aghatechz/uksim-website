@@ -1,5 +1,17 @@
 [
   {
+    "id": "product-1785819671652",
+    "name": "Rayan",
+    "category": "Vodafone UK",
+    "price": 3500,
+    "originalPrice": 6000,
+    "rating": 5,
+    "reviewsCount": 10,
+    "image": "/product pictures/Vodafone_img1_202304.jpg",
+    "description": "for seel kam ka bachan nhai ha leleo smit say akar",
+    "isBestSeller": true
+  },
+  {
     "id": "vodafone-uk-official",
     "name": "Official Vodafone UK Pay-As-You-Go SIM Card",
     "category": "Vodafone UK",

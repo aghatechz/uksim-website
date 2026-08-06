@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <g transform="translate(5, 5)">
+    <circle cx="25" cy="25" r="25" fill="#24A1DE"/>
+    <path fill="#FFFFFF" d="M12 25 l22 -9 l-5 21 l-6 -5 l-3 3 l-1 -6 l15 -10 z"/>
+    <path fill="#24A1DE" opacity="0.2" d="M19 28 l3 3 l-3 3 z"/>
+    <path fill="#FFFFFF" d="M35 15.5 L12 25 L18 28.5 L30 20 L20.5 30 L25.5 34 L35 15.5 Z"/>
+  </g>
+  <text x="65" y="39" font-family="'Inter', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="26" fill="#24A1DE">Telegram</text>
+</svg>

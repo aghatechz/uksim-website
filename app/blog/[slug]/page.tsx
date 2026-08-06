@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, use } from "react";
+import { useState, useEffect, use } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Chatbot from "../../components/Chatbot";
@@ -8,7 +8,7 @@ import SalesToast from "../../components/SalesToast";
 import CheckoutModal from "../../components/CheckoutModal";
 import Link from "next/link";
 import Image from "next/image";
-import { blogPosts } from "../../../lib/blogData";
+import { blogPosts as fallbackBlogPosts, BlogPost } from "../../../lib/blogData";
 import {
   Calendar,
   Clock,
@@ -30,10 +30,32 @@ import Script from "next/script";
 export default function BlogPostDetail({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }> | { slug: string };
 }) {
-  const resolvedParams = use(params);
-  const post = blogPosts.find((p) => p.slug === resolvedParams.slug);
+  const unwrappedParams = typeof (params as any)?.then === "function" ? use(params as Promise<{ slug: string }>) : (params as { slug: string });
+  const rawSlug = unwrappedParams?.slug || "";
+  const slug = decodeURIComponent(rawSlug);
+
+  const [posts, setPosts] = useState<BlogPost[]>(fallbackBlogPosts);
+
+  useEffect(() => {
+    fetch("/api/blogs")
+      .then((res) => {
+        if (!res.ok) throw new Error("HTTP Error " + res.status);
+        return res.json();
+      })
+      .then((data) => {
+        if (data.success && data.blogs && data.blogs.length > 0) {
+          setPosts(data.blogs);
+        }
+      })
+      .catch((err) => console.warn("Using fallback blog data:", err));
+  }, []);
+
+  const normalizedSlug = slug.toLowerCase().trim();
+  const post =
+    posts.find((p) => p.slug.toLowerCase() === normalizedSlug || p.id === slug) ||
+    fallbackBlogPosts.find((p) => p.slug.toLowerCase() === normalizedSlug || p.id === slug);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPkg, setSelectedPkg] = useState("Vodafone UK 1 SIM Card");
